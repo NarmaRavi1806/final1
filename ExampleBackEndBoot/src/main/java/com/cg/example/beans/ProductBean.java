@@ -1,45 +1,21 @@
-package com.cg.capstore.bean;
+package com.cg.example.beans;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Entity
-@Table(name="product")
 public class ProductBean {
 
-	@Id
-	@Column(name="product_id")
 	private String productId;
-	@Column(name="product_name")
 	private String productName;
-	@Column(name="price")
 	private Double price;
-	@Column(name="quantity")
 	private int quantity;
-	@Column(name="category")
 	private String category;
-	@OneToOne
-	@JoinColumn(name="promo_code")
 	private PromosBean promoCode;
-	@OneToOne
-	@JoinColumn(name="discount_id")
 	private DiscountBean discount;
-	@OneToMany
-	@Column(name="image_id")
 	private List<ImageBean> imageId;
-	@OneToMany
-	@JoinColumn(name="feedback_id")
 	private List<FeedbackProductBean> feedbackProduct;
 	
 	public String getProductId() {
@@ -60,7 +36,6 @@ public class ProductBean {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	
 	public String getCategory() {
 		return category;
 	}
@@ -118,8 +93,9 @@ public class ProductBean {
 	@Override
 	public String toString() {
 		return "ProductBean [productId=" + productId + ", productName=" + productName + ", price=" + price
-				+ ", quantity=" + quantity + ", category=" + category + ", promoCode=" + promoCode + ", discount="
-				+ discount + ", imageId=" + imageId + ", feedbackProduct=" + feedbackProduct + "]";
+				 + ", quantity=" + quantity + ", category=" + category + ", promoCode="
+				+ promoCode + ", discount=" + discount + ", imageId=" + imageId + ", feedbackProduct=" + feedbackProduct
+				+ "]";
 	}
 	
 	

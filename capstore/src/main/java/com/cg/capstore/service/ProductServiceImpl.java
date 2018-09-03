@@ -17,6 +17,14 @@ public class ProductServiceImpl implements IProductService {
 		
 		return repo.save(product);
 	}
+
+	@Override
+	public ProductBean findByProductId(String productId) {
+		
+		return repo.getOne(productId);
+	}
+	
+	
 	
 
 }

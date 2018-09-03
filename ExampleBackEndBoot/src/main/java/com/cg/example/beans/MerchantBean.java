@@ -1,41 +1,20 @@
-package com.cg.capstore.bean;
+package com.cg.example.beans;
 
 import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Entity
-@Table(name="merchant")
 public class MerchantBean {
 
-	@Id
-	@Column(name="merchant_id")
 	private String emailId;
-	@Column(name="merchant_name")
 	private String merchantName;
-	@Column(name="phone_no")
 	private String phoneNo;
-	@Column(name="type")
 	private String type;
-	@OneToMany
-	@Column(name="order_id")
+	
 	private List<OrderBean> order;
-	@Column(name="password")
 	private String password;
-	@ManyToMany
-	@JoinColumn(name="coupon_id")
 	private List<CouponsBean> coupons;
-	@OneToMany
-	@Column(name="product_id")
 	private List<ProductBean> product;
 	
 	public List<ProductBean> getProduct() {
@@ -101,13 +80,6 @@ public class MerchantBean {
 	public MerchantBean() {
 		super();
 	}
-	@Override
-	public String toString() {
-		return "MerchantBean [emailId=" + emailId + ", merchantName=" + merchantName + ", phoneNo=" + phoneNo
-				+ ", type=" + type + ", order=" + order + ", password=" + password + ", coupons=" + coupons
-				+ ", product=" + product + "]";
-	}
-	
 	
 	
 }

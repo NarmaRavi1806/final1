@@ -39,5 +39,10 @@ public class PlacingOrderController {
 		
 		return productService.addProduct(product);
 	}
+	
+	@RequestMapping(value="/findByProductId")
+	public ProductBean findByProductId(String id) {
+		return productService.findByProductId(id);
+	}
 
 }
